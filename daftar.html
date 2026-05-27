@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daftar - SIGMA CLUB</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)"/>
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <div class="auth-brand">
+      <a href="index.html">⚡ SIGMACLUB</a>
+    </div>
+    <h2>PENDAFTARAN ÉLITE</h2>
+    <p class="auth-sub">Tinggalkan kasta lamamu, bergabunglah dengan kami.</p>
+
+    <form id="registerForm" class="auth-form">
+      <div class="form-group">
+        <label for="username"><i class="fas fa-user"></i> Nama Pengguna</label>
+        <input type="text" id="username" name="username" placeholder="Masukkan nama pengguna..." required/>
+      </div>
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i> Alamat Surel (Email)</label>
+        <input type="email" id="email" name="email" placeholder="nama@surel.com" required/>
+      </div>
+      <div class="form-group">
+        <label for="password"><i class="fas fa-lock"></i> Kata Sandi</label>
+        <input type="password" id="password" name="password" placeholder="********" required/>
+      </div>
+      <button type="submit" class="btn-auth">RESMIKAN IDENTITAS</button>
+    </form>
+
+    <p class="auth-switch">
+      Sudah punya akun? <a href="masuk.html">Masuk di sini</a>
+    </p>
+  </div>
+
+  <script src="js/register.js"></script>
+</body>
+</html>
