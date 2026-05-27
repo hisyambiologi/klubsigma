@@ -1,0 +1,55 @@
+(function () {
+  const loggedIn = sessionStorage.getItem('loggedIn');
+  const username = sessionStorage.getItem('username');
+  const role     = sessionStorage.getItem('role');
+
+  const welcomeMsg   = document.getElementById('welcome-msg');
+  const btnLoginHero = document.getElementById('btn-login-hero');
+  const navAuth      = document.getElementById('nav-auth');
+  const navDaftar    = document.getElementById('nav-daftar');
+
+  if (loggedIn === 'true' && username) {
+    // Tampilkan pesan selamat datang
+    if (welcomeMsg) {
+      welcomeMsg.textContent = '⚡ Selamat datang kembali, ' + username + '!';
+    }
+
+    // Ubah tombol login di hero menjadi logout
+    if (btnLoginHero) {
+      btnLoginHero.textContent = 'KELUAR';
+      btnLoginHero.href = '#';
+      btnLoginHero.addEventListener('click', function(e) {
+        e.preventDefault();
+        sessionStorage.removeItem('loggedIn');
+        sessionStorage.removeItem('username');
+        sessionStorage.removeItem('role');
+        alert('Kamu telah berhasil keluar. Sampai jumpa, Sigma!');
+        window.location.reload();
+      });
+    }
+
+    // Ubah navbar: sembunyikan Masuk & Daftar, ganti dengan nama user + logout
+    if (navAuth) {
+      navAuth.innerHTML = '<a href="#" id="logout-btn" class="btn-nav">'
+        + (role === 'admin' ? '👑 ' : '⚡ ') + username + ' | Keluar</a>';
+      document.getElementById('logout-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        sessionStorage.removeItem('loggedIn');
+        sessionStorage.removeItem('username');
+        sessionStorage.removeItem('role');
+        alert('Kamu telah berhasil keluar. Sampai jumpa, Sigma!');
+        window.location.reload();
+      });
+    }
+
+    if (navDaftar) {
+      navDaftar.style.display = 'none';
+    }
+
+  } else {
+    // Belum login — tampilan normal
+    if (welcomeMsg) {
+      welcomeMsg.textContent = '';
+    }
+  }
+})();
